@@ -121,6 +121,16 @@ add_elixir_to_build_path(State)->
   MixBuildPath = filename:join(BuildPath, "mix"),
   file:make_symlink(MixPath, MixBuildPath),
 
+  %% Link EEx
+  EExPath = filename:join(LibDir, "eex"),
+  EExBuildPath = filename:join(BuildPath, "eex"),
+  file:make_symlink(EExPath, EExBuildPath),
+
+  %% Link IEx
+  IExPath = filename:join(LibDir, "iex"),
+  IExBuildPath = filename:join(BuildPath, "iex"),
+  file:make_symlink(IExPath, IExBuildPath),
+
   State.
 
 %% @doc Add elixir to a list of lock dependencies.
